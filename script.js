@@ -1,6 +1,13 @@
-const uri = "https://wordsapiv1.p.rapidapi.com/words/?";
-const urlAdj = uri + "letters=4&partOfSpeech=adjective&limit=1&random=true";
-const urlNoun = uri + "letters=4&partOfSpeech=noun&limit=1&random=true";
+/**
+ * Part 1. Fetch words from WordsAPI.
+ */
+
+// Create the basic URL we will fetch. We are using a function because we might want to change these values dynamically.
+url = (wordLength, partOfSpeech) => {
+  return `https://wordsapiv1.p.rapidapi.com/words/?letters=${wordLength}&partOfSpeech=${partOfSpeech}&limit=1&random=true`;
+};
+
+// WordsAPI requires us to pass this info, so let's create an object for it to consume.
 const options = {
   method: "GET",
   headers: {
@@ -9,142 +16,59 @@ const options = {
   }
 };
 
-let req = new Request(uri, options);
-let reqAdj = new Request(urlAdj, options);
-let reqNoun = new Request(urlNoun, options);
+// Create an array of requests we want to fetch.
+// We use an array because later we might want to make a dynamic number of calls.
+const requestsToFetch = [
+  fetch(new Request(url("4", "adjective"), options)),
+  fetch(new Request(url("4", "noun"), options))
+];
 
-const apiRequest1 = fetch(reqAdj).then(function(response) {
-  return response.json();
-});
-const apiRequest2 = fetch(reqNoun).then(function(response) {
-  return response.json();
-});
-var combinedData = { apiRequest1: {}, apiRequest2: {} };
-var myArray = [];
-
-Promise.all([apiRequest1, apiRequest2])
-  .then(function(values) {
-    combinedData["apiRequest1"] = values[0];
-    combinedData["apiRequest2"] = values[1];
-    console.log("combined data is: ", combinedData);
-    myArray.push(values[0], values[1]);
-
-    return combinedData;
-    //   return myArray;
+// Promise all. Let's wait till we have all our info back to do anything.
+Promise.all(requestsToFetch)
+  .then(results => {
+    // When the array of results come back, go through them one at a time and run them through the processResult function.
+    results.forEach(result => {
+      // The fetch returns a promise containing an object. We want to parse it into JSON.
+      processResult(result.json());
+    });
   })
-  .then(() => {
-    console.log("something");
+  .catch(err => {
+    console.error("The fetch didn't return correctly: ");
+    throw err;
   });
 
-console.log("myArray is: ", myArray);
-console.log("combined data API Request 1 is: ", combinedData.apiRequest1);
+// Each result.json() comes in as the argument, which we have called resultPromise
+let processResult = resultPromise => {
+  // The second .then takes the resultPromise, turns it into usable data, and sends it on!
+  resultPromise.then(processedData => {
+    appendOutput(processedData);
+  });
+};
 
-myNewArray = [...myArray];
-console.log("My New Array is: ", myNewArray);
+/**
+ * Part 2. Display results
+ */
 
-// // // const getNameButton = document.querySelector("#getNameButton");
-// // // let outputArea = document.querySelector("#output");
-// // // let getNameText = document.querySelector("#getNameText");
+// Let's take our processed data, pull out the bits we want, and attach them to the page by calling a few more functions.
+let appendOutput = processedData => {
+  console.log(processedData);
 
-// const urlAdj =
-//   "https://wordsapiv1.p.rapidapi.com/words/?letters=4&partOfSpeech=adjective&limit=1&random=true";
-// const urlNoun =
-//   "https://wordsapiv1.p.rapidapi.com/words/?letters=4&partOfSpeech=noun&limit=1&random=true";
-// const uri = "https://wordsapiv1.p.rapidapi.com/words/?letters=4&limit=3";
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-//     "X-RapidAPI-Key": "7438b899b8mshce25491a86b1560p1d7359jsnf3fe412aa2d7"
-//   }
-// };
+  // We are putting our words in p tags for now, so let's create some.
+  let p = createNode("p");
 
-// let req = new Request(uri, options);
-// let reqAdj = new Request(urlAdj, options);
-// let reqNoun = new Request(urlNoun, options);
+  // Put the word we received into the p tag we just made.
+  p.innerHTML = processedData.word;
 
-// fetch(req)
-//   .then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error("BAD HTTP stuff");
-//     }
-//   })
-//   .then(jsonData => {
-//     console.log(jsonData);
-//   })
-//   .catch(err => {
-//     console.log("ERROR:", err.message);
-//   });
+  // Stick that tag onto the page!
+  append(p);
+};
 
-// // let h = new Headers();
-// // h.append("X-RapidAPI-Key", "a thing");
-// // console.log(typeof h, h);
+outputParent = document.getElementById("output");
 
-// // // const getNameButton = document.querySelector("#getNameButton");
-// // // let outputArea = document.querySelector("#output");
-// // // let getNameText = document.querySelector("#getNameText");
+function createNode(element) {
+  return document.createElement(element);
+}
 
-// // // getNameButton.addEventListener("click", getText, false);
-
-// // // function getText() {
-// // //   console.log(getNameText.value);
-// // //   outputArea.innerHTML = Number(getNameText.value) + 1;
-// // //   //   alert("did it");
-// // // }
-
-// // ("use strict");
-
-// // async function getDefinitionFromWordsAPI(apiKey, word, includeHeaders) {
-// //   const url = "https://wordsapiv1.p.rapidapi.com/words/";
-// //   const options = {
-// //     method: "GET",
-// //     headers: {
-// //       "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-// //       "X-RapidAPI-Key": apiKey
-// //     }
-// //   };
-// //   const request = new Request(url + word, options);
-// //   const res = await fetch(request);
-// //   const headers = Object.fromEntries(res.headers);
-// //   if (res.ok) {
-// //     const json = await res.json();
-// //     if (includeHeaders) return { headers, json };
-// //     else return json;
-// //   } else throw new Error("http error in fetch operation");
-// // }
-
-// // function makeNewAsyncAPICallFunction(apiKey, includeHeaders) {
-// //   return async word =>
-// //     await getDefinitionFromWordsAPI(apiKey, word, includeHeaders);
-// // }
-
-// // const myAPIKey = "7438b899b8mshce25491a86b1560p1d7359jsnf3fe412aa2d7";
-// // const define = makeNewAsyncAPICallFunction(myAPIKey, true);
-// // /* define(word) === getDefinitionFromWordsAPI(myAPIKey, word, true) */
-
-// // (async () => {
-// //   try {
-// //     const word = "unequivocal";
-// //     const { headers, json } = await define(word);
-// //     console.log(json);
-// //     /**
-// //      * Here ☝️, the `json` property is the JSON data from the fetch response,
-// //      * but `headers` is also available to get its `x-ratelimit-requests-
-// //      * remaining` property for tracking quota usage.
-// //      *
-// //      * FYI: This is a pattern that's being used here for convenience, but
-// //      * one typically would not include header info in the same object as
-// //      * the desired information from the response. To omit the header
-// //      * information and just return the response JSON data, call the higher order
-// //      * function above like this instead:
-// //      *
-// //      * // const define = makeNewAsyncAPICallFunction(myAPIKey);
-// //      *
-// //      */
-// //   } catch (err) {
-// //     /* probably do something more useful, but for this example: */
-// //     throw err;
-// //   }
-// // })();
+function append(el) {
+  return outputParent.appendChild(el);
+}
