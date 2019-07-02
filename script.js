@@ -1,4 +1,15 @@
 /**
+ * Part 0. Click the button
+ */
+
+let doAThing = () => {
+  alert("hello");
+};
+
+document.getElementById("getWordsButton").addEventListener("click", () => {
+  getWords();
+});
+/**
  * Part 1. Fetch words from WordsAPI.
  */
 
@@ -24,18 +35,20 @@ const requestsToFetch = [
 ];
 
 // Promise all. Let's wait till we have all our info back to do anything.
-Promise.all(requestsToFetch)
-  .then(results => {
-    // When the array of results come back, go through them one at a time and run them through the processResult function.
-    results.forEach(result => {
-      // The fetch returns a promise containing an object. We want to parse it into JSON.
-      processResult(result.json());
+let getWords = () => {
+  Promise.all(requestsToFetch)
+    .then(results => {
+      // When the array of results come back, go through them one at a time and run them through the processResult function.
+      results.forEach(result => {
+        // The fetch returns a promise containing an object. We want to parse it into JSON.
+        processResult(result.json());
+      });
+    })
+    .catch(err => {
+      console.error("The fetch didn't return correctly: ");
+      throw err;
     });
-  })
-  .catch(err => {
-    console.error("The fetch didn't return correctly: ");
-    throw err;
-  });
+};
 
 // Each result.json() comes in as the argument, which we have called resultPromise
 let processResult = resultPromise => {
