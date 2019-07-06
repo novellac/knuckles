@@ -1,0 +1,30 @@
+{
+  "name": "knuckles",
+  "version": "1.0.0",
+  "description": "Random name generator for knuckle tattoos, with a femme flair!",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novellac/knuckles.git"
+  },
+  "keywords": [
+    "scss",
+    "html",
+    "js",
+    "javascript",
+    "tattoo",
+    "fun"
+  ],
+  "author": "nc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/novellac/knuckles/issues"
+  },
+  "homepage": "https://github.com/novellac/knuckles#readme",
+  "dependencies": {
+    "sass": "^1.22.3"
+  }
+}

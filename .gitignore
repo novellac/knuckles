@@ -1,0 +1,5 @@
+# Don't track anything in the trash folder. It is for dev and educational use, and shouldn't be let out of your local environment!
+basura/**
+
+# Ignore node_modules
+node_modules

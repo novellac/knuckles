@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<title>Knuckles!</title>
 </head>
 
@@ -14,15 +15,36 @@
 	<h2>How it works</h2>
 	<p>Click the button to get your randomized knuckle tattoo suggestions. You will receive a pair of four-letter words
 		from the <a href="https://www.wordsapi.com/">Words API</a>.</p>
+	<div class="fists__wrapper">
+		<!-- Keep SVG in an object so that we can manipulate it with CSS. Remember to link the style sheet inside the SVG file itself! -->
+		<object class="fists__image" data="/images/fists3.svg" type="text/svg+xml"></object>
+		<!-- <object class="fists__image" data="/images/fists2.svg" type="text/svg+xml"></object>
+		<div class="fists__text-output">
+			<span class="finger">O</span>
+			<span class="finger">O</span>
+			<span class="finger">P</span>
+			<span class="finger">S</span>
+			<span class="finger">F</span>
+			<span class="finger">I</span>
+			<span class="finger">S</span>
+			<span class="finger">T</span>
+		</div> -->
+	</div>
+
+	<hr>
+	<!-- <div >
+		<div id="wordsOutput">
+		</div>
+	</div> -->
 	<button id="getWordsButton">Name My Knuckles</button>
 	<div id="outputHistory">
 		<h3>Words history</h3>
 		<!-- 
 			HTML here will be output by JS. 
 			It will be in the form 
-			<div>
-				<span>word</span>
-				<span>word2</span>
+			<div class="output__row">
+				<span class="row__cell">word</span>
+				<span class="row__cell">word2</span>
 			<div> 
 		-->
 	</div>

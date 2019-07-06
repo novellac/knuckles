@@ -72,6 +72,7 @@ document.getElementById("getWordsButton").addEventListener("click", getWords);
 let appendOutput = responseData => {
   console.log("appendOutput", responseData);
   let outputRow = createNode("div");
+  outputRow.classList = "output__row";
   append(outputParent, outputRow);
 
   // @TODO: Separate the words into left fist and right fist based on part of speech, since we should not need to know the order in which the objects came back.
@@ -80,6 +81,7 @@ let appendOutput = responseData => {
     if (datum) {
       // Create an element to put our word in.
       let rowCell = createNode("span");
+      rowCell.classList = "row__cell";
       // If our query returned a word, put it in the element.
       if (datum.word) {
         rowCell.innerHTML = datum.word;
@@ -105,13 +107,9 @@ function createNode(element) {
   return document.createElement(element);
 }
 
-function append(parent, el) {
-  return parent.appendChild(el);
+function append(parent, child) {
+  return parent.appendChild(child);
 }
-
-// function append(el) {
-//   return outputParent.appendChild(el);
-// }
 
 // JUST FOR DEV, SO WE CAN RUN WITHOUT PRESSING ANY BUTTONS
 getWords();

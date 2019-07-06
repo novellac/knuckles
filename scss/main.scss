@@ -1,0 +1,20 @@
+// Hey you! Yes, you! 
+// Don't forget to add new partials to this file, or they won't get compiled into CSS!
+
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables';
+
+// 2. Base stuff
+@import 'base/fonts',
+'base/reset',
+'base/typography';
+
+// 3. Layout-related sections
+@import 'layout/header',
+'layout/footer';
+
+// 4. Components
+@import 'components/buttons',
+'components/fists';

@@ -1,0 +1,44 @@
+#hands {
+	min-height: 200px;
+	min-width: 200px;
+	max-width: 100%;
+	background-image: url('../../images/fists.svg');
+	background-color: green;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.fists__wrapper {
+	max-width: 800px;
+	position: relative;
+	height: 200px;
+
+	.fists__image {
+		width: 100%;
+		position: relative;
+		border: 1px solid magenta;
+	}
+
+	// .fists__text-output {
+	// 	position: absolute;
+	// 	top: 0;
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	width: 100%;
+
+	// 	.finger {
+	// 		border: 1px solid red;
+	// 		display: inline-block;
+
+	// 		font-size: 2rem;
+	// 	}
+	// }
+}
+
+.skin {
+	fill: green !important;
+}
+
+// #finger-5 tspan {
+// 	content: 'hihi'
+// }
