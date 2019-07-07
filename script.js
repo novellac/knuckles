@@ -59,18 +59,45 @@ let fingers404 = () => {
 // Trigger fetch command
 function getWords() {
   fetchData().then(arrayOfResponses => {
-    appendOutput(arrayOfResponses);
+    createFistWord(arrayOfResponses);
+    appendHistory(arrayOfResponses);
   });
 }
 document.getElementById("getWordsButton").addEventListener("click", getWords);
 
 /**
- * Part 2. Display results
+ * Part 2. Put the letters on the fists
+ */
+// HELPERS
+let svg = document.getElementById("svg2");
+
+let createFistWord = responseData => {
+  // Create one long string from the data words we got back.
+  // This will let us iterate through the fingers and assign letters to each.
+  let fistWord = "";
+  responseData.map(datum => {
+    fistWord += datum.word;
+  });
+
+  // Let's populate the knuckles!
+  populateFist(fistWord);
+};
+
+let populateFist = fistWord => {
+  // Split the string into an array
+  fistWord.split("").map((letter, index) => {
+    // Replace the default letters in the SVG with our new text.
+    svg.getElementById(`finger__tspan--${index}`).textContent = letter;
+  });
+};
+
+/**
+ * Part 3. Display results hisory
  */
 
-// Let's take our processed data, pull out the bits we want, and attach them to the page by calling a few more functions.
-let appendOutput = responseData => {
-  console.log("appendOutput", responseData);
+// Let's take our processed data, pull out the bits we want, and attach them to the page by calling our helper functions.
+let appendHistory = responseData => {
+  console.log("appendHistory", responseData);
   let outputRow = createNode("div");
   outputRow.classList = "output__row";
   append(outputParent, outputRow);
@@ -82,12 +109,11 @@ let appendOutput = responseData => {
       // Create an element to put our word in.
       let rowCell = createNode("span");
       rowCell.classList = "row__cell";
-      // If our query returned a word, put it in the element.
       if (datum.word) {
+        // If our query returned a word, put it in the element.
         rowCell.innerHTML = datum.word;
-      }
-      // If there is an error with the query and the object comes back without a word, we will hardcode one!
-      else {
+      } else {
+        // If there is an error with the query and the object comes back without a word, we will hardcode one!
         rowCell.innerHTML = "oops";
       }
       // Stick that tag onto the page!
@@ -109,6 +135,19 @@ function createNode(element) {
 
 function append(parent, child) {
   return parent.appendChild(child);
+}
+
+/**
+ * Part 4. Change Controls
+ */
+skinElements = Array.from(svg.querySelectorAll("path.skin"));
+
+function newFunction() {
+  return "green";
+}
+
+for (let element of skinElements) {
+  element.style.fill = newFunction();
 }
 
 // JUST FOR DEV, SO WE CAN RUN WITHOUT PRESSING ANY BUTTONS

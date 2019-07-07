@@ -167,15 +167,15 @@ q:before {
   background-size: contain; }
 
 .fists__wrapper {
-  max-width: 800px;
-  position: relative;
-  height: 200px; }
-  .fists__wrapper .fists__image {
-    width: 100%;
-    position: relative;
-    border: 1px solid magenta; }
+  width: 100%;
+  position: relative; }
+  .fists__wrapper svg {
+    width: 100%; }
 
 .skin {
-  fill: green !important; }
+  fill: green; }
+
+.fingernail {
+  fill: red; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -9,36 +9,19 @@
 }
 
 .fists__wrapper {
-	max-width: 800px;
+	width: 100%;
 	position: relative;
-	height: 200px;
+	// height: 200px;
 
-	.fists__image {
+	svg {
 		width: 100%;
-		position: relative;
-		border: 1px solid magenta;
 	}
-
-	// .fists__text-output {
-	// 	position: absolute;
-	// 	top: 0;
-	// 	display: flex;
-	// 	justify-content: space-between;
-	// 	width: 100%;
-
-	// 	.finger {
-	// 		border: 1px solid red;
-	// 		display: inline-block;
-
-	// 		font-size: 2rem;
-	// 	}
-	// }
 }
 
 .skin {
-	fill: green !important;
+	fill: green;
 }
 
-// #finger-5 tspan {
-// 	content: 'hihi'
-// }
+.fingernail {
+	fill: red;
+}
