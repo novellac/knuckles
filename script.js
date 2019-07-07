@@ -138,8 +138,9 @@ function append(parent, child) {
 }
 
 /**
- * Part 4. Change Controls
+ * Part 4. Control Skin Color
  */
+
 skinElements = Array.from(svg.querySelectorAll("path.skin"));
 
 function newFunction() {
@@ -148,6 +149,41 @@ function newFunction() {
 
 for (let element of skinElements) {
   element.style.fill = newFunction();
+}
+
+/**
+ * Part 5. Control Font
+ */
+document
+  .getElementById("changeFontButton")
+  .addEventListener("click", toggleSerif);
+
+letterElements = Array.from(svg.querySelectorAll("svg text"));
+
+let changeFontStyle = fontStyle => {
+  for (let element of letterElements) {
+    element.style.fontFamily = fontStyle;
+  }
+};
+
+let changeFontColor = fontColor => {
+  for (let element of letterElements) {
+    element.querySelector("tspan").style.stroke = "magenta";
+    element.querySelector("tspan").style.fill = "magenta";
+  }
+};
+
+let isSerif = true;
+console.log("before init", isSerif);
+function toggleSerif() {
+  if (isSerif) {
+    isSerif = false;
+    changeFontStyle("sans-serif");
+  } else if (!isSerif) {
+    isSerif = true;
+    changeFontStyle("serif");
+  }
+  console.log(isSerif);
 }
 
 // JUST FOR DEV, SO WE CAN RUN WITHOUT PRESSING ANY BUTTONS
