@@ -13,8 +13,10 @@
 
 // 3. Layout-related sections
 @import 'layout/header',
-'layout/footer';
+'layout/footer',
+'layout/grid';
 
 // 4. Components
 @import 'components/buttons',
-'components/fists';
+'components/fists',
+'components/tags';

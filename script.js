@@ -87,10 +87,6 @@ let populateFist = fistWord => {
   // Split the string into an array
   fistWord.split("").map((letter, index) => {
     // Replace the default letters in the SVG with our new text.
-    console.log("idx: ", index, "letter: ", letter);
-    if (svg.getElementById(`finger__tspan--${index}`).textContent == null) {
-      console.error("something errored!", letter);
-    }
     svg.getElementById(`finger__tspan--${index}`).textContent = letter;
   });
 };

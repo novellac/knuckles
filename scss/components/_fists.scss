@@ -10,8 +10,6 @@
 
 .fists__wrapper {
 	width: 100%;
-	position: relative;
-	// height: 200px;
 
 	svg {
 		width: 100%;
@@ -19,9 +17,14 @@
 }
 
 .skin {
-	fill: green;
+	fill: $green-wicked;
 }
 
 .fingernail {
-	fill: red;
+	fill: $red;
+}
+
+tspan.letter {
+	font-family: $bangers;
+	fill: $black;
 }
