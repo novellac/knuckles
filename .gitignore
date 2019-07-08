@@ -3,3 +3,6 @@ basura/**
 
 # Ignore node_modules
 node_modules
+
+# Ignore SCSS cache
+.sass-cache
