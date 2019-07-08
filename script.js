@@ -6,7 +6,7 @@
 
 // Create the basic URL we will fetch. We are using a function because we might want to change these values dynamically.
 url = (wordLength, partOfSpeech) => {
-  return `https://wordsapiv1.p.rapidapi.com/words/?letters=${wordLength}&partOfSpeech=${partOfSpeech}&limit=1&letterPattern=\\S&random=true`;
+  return `https://wordsapiv1.p.rapidapi.com/words/?letters=${wordLength}&partOfSpeech=${partOfSpeech}&limit=1&letterPattern=^[a-zA-Z0-9]*$&random=true`;
 };
 
 // WordsAPI requires us to pass this info, so let's create an object for it to consume.
@@ -87,6 +87,10 @@ let populateFist = fistWord => {
   // Split the string into an array
   fistWord.split("").map((letter, index) => {
     // Replace the default letters in the SVG with our new text.
+    console.log("idx: ", index, "letter: ", letter);
+    if (svg.getElementById(`finger__tspan--${index}`).textContent == null) {
+      console.error("something errored!", letter);
+    }
     svg.getElementById(`finger__tspan--${index}`).textContent = letter;
   });
 };
@@ -102,7 +106,6 @@ let appendHistory = responseData => {
   outputRow.classList = "output__row";
   append(outputParent, outputRow);
 
-  // @TODO: Separate the words into left fist and right fist based on part of speech, since we should not need to know the order in which the objects came back.
   responseData.forEach(datum => {
     // Check if anything came back. If not, ignore.
     if (datum) {
@@ -134,7 +137,7 @@ function createNode(element) {
 }
 
 function append(parent, child) {
-  return parent.appendChild(child);
+  return parent.append(child);
 }
 
 /**
@@ -142,48 +145,41 @@ function append(parent, child) {
  */
 
 skinElements = Array.from(svg.querySelectorAll("path.skin"));
+skinButton = document.getElementById("skin");
+skinButton.addEventListener("input", getSkinColor);
 
-function newFunction() {
-  return "green";
-}
-
-for (let element of skinElements) {
-  element.style.fill = newFunction();
+function getSkinColor() {
+  for (let element of skinElements) {
+    element.style.fill = skinButton.value;
+  }
 }
 
 /**
- * Part 5. Control Font
+ * Part 4. Control Fingernails Color
  */
-document
-  .getElementById("changeFontButton")
-  .addEventListener("click", toggleSerif);
 
-letterElements = Array.from(svg.querySelectorAll("svg text"));
+fingernailsElements = Array.from(svg.querySelectorAll("path.fingernail"));
+fingernailsButton = document.getElementById("fingernails");
+fingernailsButton.addEventListener("input", getfingernailsColor);
 
-let changeFontStyle = fontStyle => {
-  for (let element of letterElements) {
-    element.style.fontFamily = fontStyle;
+function getfingernailsColor() {
+  for (let element of fingernailsElements) {
+    element.style.fill = fingernailsButton.value;
   }
-};
+}
 
-let changeFontColor = fontColor => {
-  for (let element of letterElements) {
-    element.querySelector("tspan").style.stroke = "magenta";
-    element.querySelector("tspan").style.fill = "magenta";
-  }
-};
+/**
+ * Part 5. Control Font Color
+ */
 
-let isSerif = true;
-console.log("before init", isSerif);
-function toggleSerif() {
-  if (isSerif) {
-    isSerif = false;
-    changeFontStyle("sans-serif");
-  } else if (!isSerif) {
-    isSerif = true;
-    changeFontStyle("serif");
+fontColorElements = Array.from(svg.querySelectorAll("tspan.letter"));
+fontColorButton = document.getElementById("fontColor");
+fontColorButton.addEventListener("input", getfontColor);
+
+function getfontColor() {
+  for (let element of fontColorElements) {
+    element.style.fill = fontColorButton.value;
   }
-  console.log(isSerif);
 }
 
 // JUST FOR DEV, SO WE CAN RUN WITHOUT PRESSING ANY BUTTONS
