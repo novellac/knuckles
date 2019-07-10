@@ -1,0 +1,9 @@
+footer {
+    background-image: linear-gradient(darken($pink, 10%), darken($pink, 5%));
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+footer * {
+    color: $white;
+}

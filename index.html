@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<style>
-		@import url('https://fonts.googleapis.com/css?family=Bangers|Barriecito|Miltonian+Tattoo|Mountains+of+Christmas|Permanent+Marker|Press+Start+2P|Rubik+Mono+One&display=swap');
+		/* @import url('https://fonts.googleapis.com/css?family=Bangers|Barriecito|Miltonian+Tattoo|Mountains+of+Christmas|Permanent+Marker|Press+Start+2P|Rubik+Mono+One&display=swap'); */
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<title>Knuckles!</title>
@@ -14,12 +14,13 @@
 
 <body>
 	<header class="header">
-		<h1 class="header__title font--bangers">Name My Knuckles!</h1>
+		<h1 class="header__title">Name My Knuckles!</h1>
 		<p class="subtitle sr-only">Randomized suggestions for your knuckle tattoos. Click the button to receive a new
 			suggestion.</p>
 	</header>
 	<main class="main">
-		<!-- <section id="color-options" class="options__panel">
+		<section id="color-options" class="options__panel">
+			<h3 class="options-panel__title sr-only">Control Stuff</h3>
 			<div class="colors__skin options-panel__button">
 				<input type="color" id="skin" name="skin" value="#008000" class="sr-only">
 				<label for="skin">Skin</label>
@@ -32,22 +33,21 @@
 				<input type="color" id="fontColor" name="fontColor" value="#000000" class="sr-only">
 				<label for="fontColor">Font</label>
 			</div>
-		</section> -->
-		<section id="new-word" class="options__new-word">
-			<button id="getWordsButton" class="new-word__button">Do It Again!</button>
 		</section>
 		<section id="image-output">
 			<div class="fists__wrapper">
 				<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
 					xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-					xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-					xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 205.64635 103.05426" id="svg2"
-					version="1.1" inkscape:version="0.92.4 (unknown)" sodipodi:docname="fists3.svg">
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+					xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 205.64635 103.05426"
+					id="svg2" version="1.1" inkscape:version="0.92.4 (unknown)" sodipodi:docname="fists3.svg">
 					<defs id="defs4" />
 					<sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0"
-						inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.9697071" inkscape:cx="104.41525"
-						inkscape:cy="44.689529" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false"
-						inkscape:window-width="1920" inkscape:window-height="968" inkscape:window-x="0" inkscape:window-y="27"
+						inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.9697071"
+						inkscape:cx="104.41525" inkscape:cy="44.689529" inkscape:document-units="px"
+						inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1920"
+						inkscape:window-height="968" inkscape:window-x="0" inkscape:window-y="27"
 						inkscape:window-maximized="1" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0"
 						fit-margin-bottom="0" />
 					<metadata id="metadata7">
@@ -66,7 +66,8 @@
 								d="m 675.5625,496.96094 -4.28125,3.15039 c -3.33136,2.45124 -5.73152,3.13574 -10.82227,3.08594 -3.59789,-0.0351 -7.40253,-0.7785 -8.45312,-1.65039 -1.40885,-1.16927 -2.56406,-1.23396 -4.40625,-0.24805 -3.83073,0.94086 -7.66146,0.55492 -11.49219,0.0859 1.01407,0 1.04878,0.68824 0.12305,2.41796 -0.71168,1.3298 -1.29297,4.12354 -1.29297,6.20704 0,5.63307 3.21702,6.8448 13.81055,5.20117 7.0004,-1.08615 9.44338,-1.00312 12.73828,0.4375 8.48031,3.70777 11.80643,2.38096 24.00586,-9.57617 3.33178,-3.26563 6.47375,-5.9375 6.98242,-5.9375 l -6.47656,2.14648 -5.21875,-2.66016 z"
 								style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 								class="skin thumb" />
-							<path sodipodi:nodetypes="sssssscssscccccccccsssscsss" inkscape:connector-curvature="0" id="path4227"
+							<path sodipodi:nodetypes="sssssscssscccccccccsssscsss" inkscape:connector-curvature="0"
+								id="path4227"
 								d="m 662.27539,416.50586 c -3.35203,-0.0284 -6.91555,0.73373 -10.85156,2.28516 -4.05921,1.6 -7.76377,2.18502 -11.05078,1.74414 -3.64422,-0.4888 -6.04973,0.009 -9.15039,1.89453 -2.71435,1.65069 -5.4013,2.31974 -7.57618,1.88476 -4.18229,-0.83646 -10.19365,2.92343 -16.0039,10.01172 -3.53809,4.31631 -4.05551,5.75473 -3.42188,9.50977 0.41062,2.43328 1.22934,12.88782 1.81836,23.23242 1.11747,19.62556 2.68044,25.40814 7.57813,28.0293 3.22653,1.72679 10.47303,1.63439 12.26367,-0.15625 1.09081,-1.09081 2.34081,-0.48049 5.125,2.5 4.01619,4.48291 11.06793,6.71772 16.59375,3.85742 1.84219,-0.98591 2.9974,-0.92122 4.40625,0.24805 1.05059,0.87189 4.85523,1.61529 8.45312,1.65039 5.09075,0.0498 7.49091,-0.6347 10.82227,-3.08594 l 4.28125,-3.15039 5.2168,2.66015 5.21875,2.66016 6.47656,-2.14648 c 0.50866,0 1.94905,-1.54688 3.20117,-3.4375 1.76713,-2.66829 2.46841,-7.09358 3.13086,-19.77735 0.67215,-12.86939 1.40175,-17.41788 3.43945,-21.41211 3.55354,-6.96551 2.21089,-15.19558 -4.00781,-24.56445 -2.53677,-3.82181 -5.05346,-7.22002 -5.5918,-7.55274 -0.53833,-0.33268 -4.32059,-0.88345 -8.40625,-1.2246 -4.08563,-0.34114 -9.65737,-1.78225 -12.38085,-3.20118 -3.09218,-1.61102 -6.23196,-2.43056 -9.58399,-2.45898 z"
 								style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 								class="skin" />
@@ -119,7 +120,8 @@
 								d="m 675.5625,496.96094 -4.28125,3.15039 c -3.33136,2.45124 -5.73152,3.13574 -10.82227,3.08594 -3.59789,-0.0351 -7.40253,-0.7785 -8.45312,-1.65039 -1.40885,-1.16927 -2.56406,-1.23396 -4.40625,-0.24805 -3.83073,0.94086 -7.66146,0.55492 -11.49219,0.0859 1.01407,0 1.04878,0.68824 0.12305,2.41796 -0.71168,1.3298 -1.29297,4.12354 -1.29297,6.20704 0,5.63307 3.21702,6.8448 13.81055,5.20117 7.0004,-1.08615 9.44338,-1.00312 12.73828,0.4375 8.48031,3.70777 11.80643,2.38096 24.00586,-9.57617 3.33178,-3.26563 6.47375,-5.9375 6.98242,-5.9375 l -6.47656,2.14648 -5.21875,-2.66016 z"
 								style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 								class="skin thumb" />
-							<path sodipodi:nodetypes="sssssscssscccccccccsssscsss" inkscape:connector-curvature="0" id="path4227-1"
+							<path sodipodi:nodetypes="sssssscssscccccccccsssscsss" inkscape:connector-curvature="0"
+								id="path4227-1"
 								d="m 662.27539,416.50586 c -3.35203,-0.0284 -6.91555,0.73373 -10.85156,2.28516 -4.05921,1.6 -7.76377,2.18502 -11.05078,1.74414 -3.64422,-0.4888 -6.04973,0.009 -9.15039,1.89453 -2.71435,1.65069 -5.4013,2.31974 -7.57618,1.88476 -4.18229,-0.83646 -10.19365,2.92343 -16.0039,10.01172 -3.53809,4.31631 -4.05551,5.75473 -3.42188,9.50977 0.41062,2.43328 1.22934,12.88782 1.81836,23.23242 1.11747,19.62556 2.68044,25.40814 7.57813,28.0293 3.22653,1.72679 10.47303,1.63439 12.26367,-0.15625 1.09081,-1.09081 2.34081,-0.48049 5.125,2.5 4.01619,4.48291 11.06793,6.71772 16.59375,3.85742 1.84219,-0.98591 2.9974,-0.92122 4.40625,0.24805 1.05059,0.87189 4.85523,1.61529 8.45312,1.65039 5.09075,0.0498 7.49091,-0.6347 10.82227,-3.08594 l 4.28125,-3.15039 5.2168,2.66015 5.21875,2.66016 6.47656,-2.14648 c 0.50866,0 1.94905,-1.54688 3.20117,-3.4375 1.76713,-2.66829 2.46841,-7.09358 3.13086,-19.77735 0.67215,-12.86939 1.40175,-17.41788 3.43945,-21.41211 3.55354,-6.96551 2.21089,-15.19558 -4.00781,-24.56445 -2.53677,-3.82181 -5.05346,-7.22002 -5.5918,-7.55274 -0.53833,-0.33268 -4.32059,-0.88345 -8.40625,-1.2246 -4.08563,-0.34114 -9.65737,-1.78225 -12.38085,-3.20118 -3.09218,-1.61102 -6.23196,-2.43056 -9.58399,-2.45898 z"
 								style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 								class="skin" />
@@ -225,49 +227,40 @@
 				</svg>
 			</div>
 		</section>
-		<section id="color-options" class="options__panel">
-			<h3 class="options-panel__title sr-only">Control Stuff</h3>
-			<div class="colors__skin options-panel__button">
-				<input type="color" id="skin" name="skin" value="#008000" class="sr-only">
-				<label for="skin">Skin</label>
-			</div>
-			<div class="colors__fingernails options-panel__button">
-				<input type="color" id="fingernails" name="fingernails" value="#ff0000" class="sr-only">
-				<label for="fingernails">Nails</label>
-			</div>
-			<div class="colors__fontColor options-panel__button">
-				<input type="color" id="fontColor" name="fontColor" value="#000000" class="sr-only">
-				<label for="fontColor">Font</label>
-			</div>
+		<section id="new-word" class="options__new-word">
+			<button id="getWordsButton" class="new-word__button">Do It Again!</button>
 		</section>
+
 		<section id="definition-output">
 			<!-- This is where the current word definitions will live. -->
 		</section>
 
-		<section id="outputHistory" class="history__tags">
-			<h3>Words history</h3>
-			<!-- 
-		HTML here will be output by JS. 
-		It will be in the form 
-			<div class="output__row">
-				<span class="row__cell">word</span>
-				<span class="row__cell">word2</span>
-				<div> 
-				-->
+		<section class="history__tags">
+			<div id="outputHistory">
+				<h3 class="history__title">Knuckles Generated:</h3>
+				<!-- 
+					HTML here will be output by JS. 
+					It will be in the form 
+					<div class="output__row">
+						<span class="row__cell">word</span>
+						<span class="row__cell">word2</span>
+						<div> 
+						-->
+			</div>
 		</section>
 	</main>
 
 	<footer class="footer">
-		<h3 class="font--bangers">Knuckles!</h2>
-			<p>Randomized suggestions for your knuckle tattoos.</p>
-			<h2>How it works</h2>
-			<p>Click the button to get your randomized knuckle tattoo suggestions. You will receive a pair of four-letter
-				words
-				from the <a href="https://www.wordsapi.com/">Words API</a>.</p>
+		<h3 class="font--bangers">Knuckles!</h3>
+		<p>Randomized suggestions for your knuckle tattoos.</p>
+		<h2>How it works</h2>
+		<p>Click the button to get your randomized knuckle tattoo suggestions. You will receive a pair of four-letter
+			words
+			from the <a href="https://www.wordsapi.com/">Words API</a>.</p>
 
-			<p>Original image adapted from <a
-					href="https://commons.wikimedia.org/wiki/File:Human_fist_different_sides.svg">Wiki
-					Commons</a>.</p>
+		<p>Original image adapted from <a
+				href="https://commons.wikimedia.org/wiki/File:Human_fist_different_sides.svg">Wiki
+				Commons</a>.</p>
 	</footer>
 
 	<script type="text/javascript" src="script.js"></script>

@@ -98,7 +98,7 @@ let populateFist = fistWord => {
 // Let's take our processed data, pull out the bits we want, and attach them to the page by calling our helper functions.
 let appendHistory = responseData => {
   console.log("appendHistory", responseData);
-  let outputRow = createNode("div");
+  let outputRow = createNode("li");
   outputRow.classList = "output__row";
   append(outputParent, outputRow);
 

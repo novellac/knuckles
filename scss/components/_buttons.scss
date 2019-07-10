@@ -1,9 +1,9 @@
 .options__panel {
-    display: flex;
     align-items: center;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 3rem auto 8rem auto;
+    justify-content: space-around;
+    margin: 0 auto 8rem auto;
 }
 
 .options-panel__title {
@@ -13,10 +13,15 @@
 
 .options-panel__button {
     background-color: lighten($pink, 10%);
-    border: 2px solid $purple;
-    border-radius: 50%;
+    border-radius: $border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     display: flex;
-    padding: 2rem;
+    min-width: 20%;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     &.colors__skin {
         background-color: $green-wicked;
@@ -31,29 +36,37 @@
     }
 
     label {
-        background-color: $white;
-        border: 1px solid darken($white, 50%);
-        border-radius: 5px;
-        color: $black;
-        padding: 0 .5rem;
+        color: $white;
+        padding: 1rem 2rem;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
 .options__new-word {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin: 10vh auto 5rem auto;
 
     .new-word__button {
-        background-color: $pink;
-        border: 1px solid darken($pink, 20%);
-        color: $white;
-        font-family: $bangers;
+        background-color: lighten($pink, 10%);
+        border-width: 0px;
+        border-radius: $border-radius;
+        color: $black;
+        font-weight: 600;
         line-height: normal;
         letter-spacing: 2px;
-        text-align: inherit;
-        padding: 1.25rem 2rem;
-        border-radius: 10px;
+        text-align: center;
+        padding: 1.5rem 2rem;
+        min-width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 

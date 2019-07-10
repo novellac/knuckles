@@ -1,4 +1,11 @@
+.header {
+    background-image: linear-gradient(lighten($pink, 10%), $pink);
+}
+
 .header__title {
+    color: $white;
     margin: auto;
     text-align: center;
+    font-family: $bangers;
+    font-weight: lighter;
 }
