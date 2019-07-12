@@ -179,17 +179,20 @@ h1 {
   font-size: 5rem; }
 
 .header {
-  background-image: linear-gradient(#e79c9c, #dd7373); }
+  background-color: #dd7373;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 2rem 0; }
 
 .header__title {
   color: #f3f6f4;
-  margin: auto;
-  text-align: center;
   font-family: "Bangers", cursive, sans-serif;
-  font-weight: lighter; }
+  font-weight: lighter;
+  margin: auto;
+  text-align: center; }
 
 footer {
   background-image: linear-gradient(#d34a4a, #d85f5f);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   margin-top: 2rem;
   padding: 1rem; }
 
@@ -223,7 +226,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 0 auto 8rem auto; }
+  margin: 0 auto 6rem auto; }
 
 .options-panel__title {
   flex-basis: 100%;
@@ -234,6 +237,7 @@ section {
   border-radius: 2px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   min-width: 20%; }
   .options-panel__button:hover {
@@ -246,7 +250,7 @@ section {
     background-color: #191629; }
   .options-panel__button label {
     color: #f3f6f4;
-    padding: 1rem 2rem;
+    padding: .5rem 2rem 1.75rem 2rem;
     text-align: center;
     width: 100%; }
     .options-panel__button label:hover {
@@ -260,13 +264,16 @@ section {
     background-color: #e79c9c;
     border-width: 0px;
     border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     color: #191629;
-    font-weight: 600;
+    font-family: "Bangers", cursive, sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
     line-height: normal;
     letter-spacing: 2px;
-    text-align: center;
+    min-width: 100%;
     padding: 1.5rem 2rem;
-    min-width: 100%; }
+    text-align: center; }
     .options__new-word .new-word__button:hover {
       cursor: pointer; }
 

@@ -1,11 +1,13 @@
 .header {
-    background-image: linear-gradient(lighten($pink, 10%), $pink);
+    background-color: $pink;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    padding: 2rem 0;
 }
 
 .header__title {
     color: $white;
-    margin: auto;
-    text-align: center;
     font-family: $bangers;
     font-weight: lighter;
+    margin: auto;
+    text-align: center;
 }

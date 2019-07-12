@@ -1,5 +1,7 @@
 footer {
     background-image: linear-gradient(darken($pink, 10%), darken($pink, 5%));
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+
     margin-top: 2rem;
     padding: 1rem;
 }
