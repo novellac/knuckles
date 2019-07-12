@@ -1,4 +1,8 @@
-# Read Me First!
+# Name your knuckles!
+
+### A fun, not-for-real knuckle tattoo generator
+
+<https://novella.dev/knuckles>
 
 This app is a random word generator, generating silly, not-for-real suggestions for knuckle tattoos.
 _Please do not take these suggestions seriously._
@@ -7,7 +11,7 @@ _These words don't represent my opinion. I don't really think you should use my 
 
 ## But like, _why_?
 
-I wanted to teach myself more about fetch and promises. I also like silly word pairings. Plus I can dress it up a little and make it tres cute.
+I wanted to teach myself more about Fetch and Javascript promises. I also like silly word pairings. Plus I can dress it up a little and make it super cute.
 
 ## This is awesome can I help?
 
@@ -16,3 +20,9 @@ You are welcome to submit an issue for new features, but I make no guarantees!
 ## I found bad words!
 
 Yeahhhh these are two four-letter words being generated. I may someday make a list of stopwords, but today is not that day.
+
+## What's next?
+
+I'm so glad you asked!
+Check out the [Knuckles project board](https://github.com/novellac/knuckles/projects/1) to see what we have in store, and where we are in the process.
+Also, feel free to [add an issue](https://github.com/novellac/knuckles/issues) to submit your ideas and/or bugs you've found.
