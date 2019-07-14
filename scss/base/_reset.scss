@@ -181,3 +181,7 @@ q:before {
     left: -9999px;
     top: -9999px;
 }
+
+*:focus {
+    border: 3px dashed purple;
+}

@@ -158,6 +158,9 @@ q:before {
   left: -9999px;
   top: -9999px; }
 
+*:focus {
+  border: 3px dashed purple; }
+
 .font--bangers {
   font-family: "Bangers", cursive, sans-serif, cursive, sans-serif; }
 
@@ -179,7 +182,7 @@ h1 {
   font-size: 5rem; }
 
 .header {
-  background-color: #dd7373;
+  background-color: #d34a4a;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   padding: 2rem 0; }
 
@@ -191,7 +194,7 @@ h1 {
   text-align: center; }
 
 footer {
-  background-image: linear-gradient(#d34a4a, #d85f5f);
+  background-image: linear-gradient(#ce3636, #d34a4a);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   margin-top: 2rem;
   padding: 1rem; }
@@ -233,7 +236,7 @@ section {
   text-align: center; }
 
 .options-panel__button {
-  background-color: #e79c9c;
+  background-color: #d34a4a;
   border-radius: 2px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -243,9 +246,9 @@ section {
   .options-panel__button:hover {
     cursor: pointer; }
   .options-panel__button.colors__skin {
-    background-color: #57a857; }
+    background-color: #346534; }
   .options-panel__button.colors__fingernails {
-    background-color: #EA052C; }
+    background-color: #b80423; }
   .options-panel__button.colors__fontColor {
     background-color: #191629; }
   .options-panel__button label {
@@ -313,10 +316,13 @@ tspan.letter {
   font-family: "Bangers", cursive, sans-serif;
   fill: #191629; }
 
+.history__list {
+  list-style: disc; }
+
 li {
   list-style-position: inside; }
 
-.row__cell:nth-of-type(2) {
+.history__suggestion--word:nth-of-type(2) {
   margin: 0 .5rem; }
 
 /*# sourceMappingURL=styles.css.map */

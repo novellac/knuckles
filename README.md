@@ -7,7 +7,7 @@
 This app is a random word generator, generating silly, not-for-real suggestions for knuckle tattoos.
 _Please do not take these suggestions seriously._
 _There is no list of stopwords, and as such, offensive words may result._
-_These words don't represent my opinion. I don't really think you should use my app to generate a knuckle tattoo for yourself._
+_These words don't represent my opinions. I don't really think you should use my app to generate a knuckle tattoo for yourself._
 
 ## But like, _why_?
 

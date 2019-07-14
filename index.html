@@ -14,23 +14,28 @@
 
 <body>
 	<header class="header">
-		<h1 class="header__title">Name My Knuckles!</h1>
-		<p class="subtitle sr-only">Randomized suggestions for your knuckle tattoos. Click the button to receive a new
-			suggestion.</p>
+		<h1 class="header__title">Name My Knuckles! <span class="sr-word sr-only">OOPS FIST</span></h1>
+		<h2 class="subtitle sr-only">Randomized suggestions for your knuckle tattoos. Your random knuckle tattoo is</h2>
 	</header>
-	<main class="main">
+	<main role="main" class="main">
+		</h2>
 		<section id="color-options" class="options__panel">
-			<h3 class="options-panel__title sr-only">Control Stuff</h3>
 			<div class="colors__skin options-panel__button">
-				<input type="color" id="skin" name="skin" value="#008000" class="sr-only">
+				<input aria-labelledby="ariaSkinColor" role="color" type="color" id="skin" name="skin" value="#008000"
+					class="sr-only">
 				<label for="skin">Skin</label>
+				<p id="ariaSkinColor" class="sr-only">Choose the skin color.</p>
 			</div>
 			<div class="colors__fingernails options-panel__button">
-				<input type="color" id="fingernails" name="fingernails" value="#ff0000" class="sr-only">
-				<label for="fingernails">Nails</label>
+				<input aria-labelledby="ariaNailColor" role="color" type="color" id="fingernails" name="fingernails"
+					value="#ff0000" class="sr-only">
+				<p id="ariaNailColor" class="sr-only">Choose the fingernail color.</p>
+				<label color" for="fingernails">Nails</label>
 			</div>
 			<div class="colors__fontColor options-panel__button">
-				<input type="color" id="fontColor" name="fontColor" value="#000000" class="sr-only">
+				<input aria-labelledby="ariaFontColor" role="color" type="color" id="fontColor" name="fontColor"
+					value="#000000" class="sr-only">
+				<p id="ariaFontColor" class="sr-only">Choose the font color.</p>
 				<label for="fontColor">Font</label>
 			</div>
 		</section>
@@ -228,16 +233,19 @@
 			</div>
 		</section>
 		<section id="new-word" class="options__new-word">
-			<button id="getWordsButton" class="new-word__button">Do It Again!</button>
+			<button aria-labelledby="newWordButton" role="button" id="getWordsButton" class="new-word__button">Do It
+				Again!</button>
+			<p id="newWordButton" class="sr-only">Your current word is <span class="sr-word">OOPS FIST</span>. Click the
+				button to get a new word</p>
 		</section>
 
 		<section id="definition-output">
 			<!-- This is where the current word definitions will live. -->
 		</section>
 
-		<section class="history__tags">
-			<div id="outputHistory">
-				<h3 class="history__title">Knuckles Generated:</h3>
+		<section class="history">
+			<h3 class="history__title">Knuckles Generated:</h3>
+			<ul id="outputHistory" role="list" class="history__list">
 				<!-- 
 					HTML here will be output by JS. 
 					It will be in the form 
@@ -246,7 +254,7 @@
 						<span class="row__cell">word2</span>
 						<div> 
 						-->
-			</div>
+			</ul>
 		</section>
 	</main>
 

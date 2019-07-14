@@ -89,7 +89,21 @@ let populateFist = fistWord => {
     // Replace the default letters in the SVG with our new text.
     svg.getElementById(`finger__tspan--${index}`).textContent = letter;
   });
+
+  // @TODO: This outputs the word that was just changed - so it's old and done now!
+  createSrWords(fistWord);
 };
+
+/**
+ * Part 2a. Output the new word for screen readers.
+ */
+let srWords = Array.from(document.getElementsByClassName("sr-word"));
+let createSrWords = fistWord => {
+  srWords.forEach(word => {
+    word.textContent = fistWord;
+  });
+};
+console.log("sr word", srWords);
 
 /**
  * Part 3. Display results hisory
@@ -99,7 +113,7 @@ let populateFist = fistWord => {
 let appendHistory = responseData => {
   console.log("appendHistory", responseData);
   let outputRow = createNode("li");
-  outputRow.classList = "output__row";
+  outputRow.classList = "history__suggestion";
   append(outputParent, outputRow);
 
   responseData.forEach(datum => {
@@ -107,7 +121,7 @@ let appendHistory = responseData => {
     if (datum) {
       // Create an element to put our word in.
       let rowCell = createNode("span");
-      rowCell.classList = "row__cell";
+      rowCell.classList = "history__suggestion--word";
       if (datum.word) {
         // If our query returned a word, put it in the element.
         rowCell.innerHTML = datum.word;
@@ -178,5 +192,8 @@ function getfontColor() {
   }
 }
 
-// JUST FOR DEV, SO WE CAN RUN WITHOUT PRESSING ANY BUTTONS
+/**
+ * Welcome to the page! Things to run on page load
+ */
+// Get a random word on page load
 getWords();

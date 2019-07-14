@@ -1,9 +1,11 @@
-.history__title {}
+.history__list {
+    list-style: disc;
+}
 
 li {
     list-style-position: inside;
 }
 
-.row__cell:nth-of-type(2) {
+.history__suggestion--word:nth-of-type(2) {
     margin: 0 .5rem;
 }
