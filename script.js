@@ -176,7 +176,7 @@ let appendHistory = responseData => {
         if (datum.word) {
           // If our query returned a word, put it in the element.
           rowCell.href += datum.word;
-          rowCell.innerHTML += datum.word;
+          rowCell.innerHTML += `${datum.word} `;
         } else {
           // If there is an error with the query and the object comes back without a word, we will hardcode one!
           rowCell.href = `?oopsfist`;
