@@ -1,8 +1,39 @@
-// https://www.andreasreiterer.at/single-result-with-promise-all/
+/**
+ * 1a. Choose the source - either the URL or the WordsAPI
+ */
+
+//  Get an aray with all of our arguments.
+let searchArg = window.location.search;
+
+// Take the rest of the string after the first question mark. This lets us keep question marks as valid letters for the fist.
+// @TODO We will need to rethink the way we take in arguements when we want to add colors to the custom links!
+let dataFromUrl = searchArg.substring(searchArg.indexOf("?") + 1);
+
+// Fetch words from URL or API
+function chooseSource() {
+  if (window.location.search) {
+    getDataFromUrl();
+  } else {
+    getDataFromApi();
+  }
+}
+
+let getDataFromUrl = () => {
+  populateFist(dataFromUrl);
+  appendHistory(dataFromUrl);
+};
+
+let getDataFromApi = () => {
+  fetchData().then(arrayOfResponses => {
+    appendHistory(arrayOfResponses);
+    createFistWord(arrayOfResponses);
+  });
+};
 
 /**
- * Part 1. Fetch words from WordsAPI.
+ * Part 1b. Fetch words from WordsAPI.
  */
+// https://www.andreasreiterer.at/single-result-with-promise-all/
 
 // Create the basic URL we will fetch. We are using a function because we might want to change these values dynamically.
 url = (wordLength, partOfSpeech) => {
@@ -56,15 +87,6 @@ let fingers404 = () => {
     "<h1>Sad Fingers<br> >__< <br>The data source isn't playing today.</h1>";
 };
 
-// Trigger fetch command
-function getWords() {
-  fetchData().then(arrayOfResponses => {
-    createFistWord(arrayOfResponses);
-    appendHistory(arrayOfResponses);
-  });
-}
-document.getElementById("getWordsButton").addEventListener("click", getWords);
-
 /**
  * Part 2. Put the letters on the fists
  */
@@ -85,13 +107,27 @@ let createFistWord = responseData => {
 
 let populateFist = fistWord => {
   // Split the string into an array
+  if (fistWord.length < 8) {
+    while (fistWord.length < 8) {
+      fistWord += " ";
+      console.log(fistWord);
+    }
+  } else if (fistWord.length > 8) {
+    fistWord = fistWord.substring(0, 8);
+    console.log(fistWord);
+  }
   fistWord.split("").map((letter, index) => {
     // Replace the default letters in the SVG with our new text.
-    svg.getElementById(`finger__tspan--${index}`).textContent = letter;
+    let fingerId = svg.getElementById(`finger__tspan--${index}`);
+    fingerId.textContent = letter;
   });
 
   // @TODO: This outputs the word that was just changed - so it's old and done now!
   createSrWords(fistWord);
+};
+
+let setNewUrl = fistArg => {
+  window.location.search = fistArg;
 };
 
 /**
@@ -116,23 +152,41 @@ let appendHistory = responseData => {
   outputRow.classList = "history__suggestion";
   append(outputParent, outputRow);
 
-  responseData.forEach(datum => {
-    // Check if anything came back. If not, ignore.
-    if (datum) {
-      // Create an element to put our word in.
-      let rowCell = createNode("span");
-      rowCell.classList = "history__suggestion--word";
-      if (datum.word) {
-        // If our query returned a word, put it in the element.
-        rowCell.innerHTML = datum.word;
-      } else {
-        // If there is an error with the query and the object comes back without a word, we will hardcode one!
-        rowCell.innerHTML = "oops";
+  // If responseData is just a string, we know it came from the URL
+  if (typeof responseData === "string") {
+    let rowCell = createNode("a");
+    rowCell.classList = "history__suggestion--custom";
+    rowCell.href = `?${responseData}`;
+    rowCell.innerHTML = responseData;
+    rowCell.target = "_blank";
+    // Stick that tag onto the page!
+    append(outputRow, rowCell);
+  }
+  // If responseData isn't a string, it must have come from our API.
+  else {
+    // Create an element to put our word in.
+    let rowCell = createNode("a");
+    rowCell.classList = "history__suggestion--word";
+    rowCell.href = "?";
+    rowCell.target = "_blank";
+
+    responseData.forEach(datum => {
+      // Check if anything came back. If not, ignore.
+      if (datum) {
+        if (datum.word) {
+          // If our query returned a word, put it in the element.
+          rowCell.href += datum.word;
+          rowCell.innerHTML += datum.word;
+        } else {
+          // If there is an error with the query and the object comes back without a word, we will hardcode one!
+          rowCell.href = `?oopsfist`;
+          rowCell.innerHTML = "oops";
+        }
+        // Stick that tag onto the page!
+        append(outputRow, rowCell);
       }
-      // Stick that tag onto the page!
-      append(outputRow, rowCell);
-    }
-  });
+    });
+  }
 };
 
 /**
@@ -142,13 +196,13 @@ let appendHistory = responseData => {
 //  Places where we keep the output on the page
 outputParent = document.getElementById("outputHistory");
 
-function createNode(element) {
+let createNode = element => {
   return document.createElement(element);
-}
+};
 
-function append(parent, child) {
+let append = (parent, child) => {
   return parent.append(child);
-}
+};
 
 /**
  * Part 4. Control Skin Color
@@ -165,7 +219,7 @@ function getSkinColor() {
 }
 
 /**
- * Part 4. Control Fingernails Color
+ * Part 5. Control Fingernails Color
  */
 
 fingernailsElements = Array.from(svg.querySelectorAll("path.fingernail"));
@@ -179,7 +233,7 @@ function getfingernailsColor() {
 }
 
 /**
- * Part 5. Control Font Color
+ * Part 6. Control Font Color
  */
 
 fontColorElements = Array.from(svg.querySelectorAll("tspan.letter"));
@@ -196,4 +250,7 @@ function getfontColor() {
  * Welcome to the page! Things to run on page load
  */
 // Get a random word on page load
-getWords();
+chooseSource();
+document
+  .getElementById("getWordsButton")
+  .addEventListener("click", getDataFromApi);
