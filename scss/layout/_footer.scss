@@ -1,11 +1,15 @@
 footer {
-    background-image: linear-gradient(darken($pink, 15%), darken($pink, 10%));
-    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  background-image: linear-gradient(darken($pink, 15%), darken($pink, 10%));
+  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
 
-    margin-top: 2rem;
-    padding: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 footer * {
-    color: $white;
+  color: $white;
+}
+
+footer h2 {
+  margin-top: 1rem;
 }
