@@ -7,6 +7,7 @@ let searchArg = window.location.search
 
 // Take the rest of the string after the first question mark. This lets us keep question marks as valid letters for the fist.
 // @TODO We will need to rethink the way we take in arguements when we want to add colors to the custom links!
+// We should use something like URLSearchParams (https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams)
 let dataFromUrl = searchArg.substring(searchArg.indexOf('?') + 1)
 
 // Fetch words from URL or API
