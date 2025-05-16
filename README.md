@@ -2,8 +2,6 @@
 
 ### A fun, not-for-real knuckle tattoo generator
 
-<https://novella.dev/knuckles>
-
 This app is a random word generator, generating silly, not-for-real suggestions for knuckle tattoos.
 _Please do not take these suggestions seriously._
 _There is no list of stopwords, and as such, offensive words may result._
